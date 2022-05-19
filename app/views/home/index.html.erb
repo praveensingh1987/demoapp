@@ -1,0 +1,28 @@
+<%if user_signed_in? && current_user.role == "Admin" %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>User Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript">
+	$.get( "/api/v1/users/index?api_token=<%= current_user.api_token %>", function(data) {
+		$.each(data["data"] , function(index, val) { 
+		  var values  = "<tr><td>" + val["id"] + "</td><td>" + val["first_name"] + "</td><td>" + val["last_name"] + "</td><td>" + val["user_name"]+ "</td></tr>";
+		  $("table tbody").append(values);
+		});
+	});
+</script>
+<% else %>
+	<h1>Home#index</h1>
+	<p>Find me in app/views/home/index.html.erb</p>
+<% end %>

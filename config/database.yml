@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: petstablished_development
+  pool: 15
+  timeout: 5000
+  username: postgres
+  password: 12345678
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: petstablished_test
+  pool: 15
+  timeout: 5000
+  username: postgres
+  password: 12345678
